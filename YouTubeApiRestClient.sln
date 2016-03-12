@@ -1,0 +1,54 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YouTubeApiRestClient", "src\YouTubeApiRestClient\YouTubeApiRestClient.csproj", "{5872B92F-FC63-4F3B-89A6-9BFA4753F1FD}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "YouTubeApiRestClient.Example", "src\YouTubeApiRestClient.Example\", "{E40FCCB8-3404-4341-9E19-E88C30048F35}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5.1"
+		ProjectReferences = "{5872b92f-fc63-4f3b-89a6-9bfa4753f1fd}|YouTubeApiRestClient.dll;"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_21162"
+		Debug.AspNetCompiler.PhysicalPath = "src\YouTubeApiRestClient.Example\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_21162\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_21162"
+		Release.AspNetCompiler.PhysicalPath = "src\YouTubeApiRestClient.Example\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_21162\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "21162"
+		SlnRelativePath = "src\YouTubeApiRestClient.Example\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+		V451|Any CPU = V451|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5872B92F-FC63-4F3B-89A6-9BFA4753F1FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5872B92F-FC63-4F3B-89A6-9BFA4753F1FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5872B92F-FC63-4F3B-89A6-9BFA4753F1FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5872B92F-FC63-4F3B-89A6-9BFA4753F1FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5872B92F-FC63-4F3B-89A6-9BFA4753F1FD}.V451|Any CPU.ActiveCfg = V451|Any CPU
+		{5872B92F-FC63-4F3B-89A6-9BFA4753F1FD}.V451|Any CPU.Build.0 = V451|Any CPU
+		{E40FCCB8-3404-4341-9E19-E88C30048F35}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E40FCCB8-3404-4341-9E19-E88C30048F35}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E40FCCB8-3404-4341-9E19-E88C30048F35}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{E40FCCB8-3404-4341-9E19-E88C30048F35}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{E40FCCB8-3404-4341-9E19-E88C30048F35}.V451|Any CPU.ActiveCfg = Debug|Any CPU
+		{E40FCCB8-3404-4341-9E19-E88C30048F35}.V451|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

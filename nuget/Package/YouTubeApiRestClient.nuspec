@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <metadata xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <id>YouTubeApiRestClient</id>
+    <version>1.0.0</version>
+    <authors>Rob Janssen</authors>
+    <owners>Rob Janssen</owners>
+    <projectUrl>https://github.com/janssenr/YouTubeApiRestClient</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <title>YouTube Api Rest Client</title>
+    <description>YouTube Api Rest Client provides an API to directly talk with the YouTube API v3 through the REST endpoint offered into your .NET (web)applications.</description>
+    <tags>youtube google api v3 wrapper video upload rest</tags>    
+  </metadata>
+</package>
+ 
