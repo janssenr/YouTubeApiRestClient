@@ -4,6 +4,7 @@ using System.Collections.Specialized;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Reflection;
 using System.Text;
 using System.Web;
 using YouTubeApiRestClient.Exceptions;
@@ -183,17 +184,41 @@ namespace YouTubeApiRestClient
 
         public SearchListResponse Search(string part, string q, long? maxResults = null)
         {
-            var queryStringData = new NameValueCollection
-            {
-                {"part", part},
-                {"maxResults", maxResults.ToString()},
-                {"q", q},
-                {"key", _apiKey}
-            };
-            var queryString = string.Join("&", queryStringData.AllKeys.Select(k => k + "=" + HttpUtility.UrlEncode(queryStringData[k])));
+            return Search(new SearchRequest() { part = part, maxResults = (ushort?)maxResults, q=q });
+        }
+        public SearchListResponse Search(SearchRequest searchRequest)
+        {
+            var queryString = GetQueryString(searchRequest);
             var url = _restApiUrl + "/youtube/v3/search?" + queryString;
             var response = DoRestCall(url, "GET");
             return JsonHelper.Deserialize<SearchListResponse>(response);
+        }
+        private string GetQueryString(object obj)
+        {
+            List<PropertyInfo> _propertyInfos = obj.GetType().GetProperties().Where(p => p.GetValue(obj, null) != null).ToList();
+            int _propertyInfoCount = _propertyInfos.Count();
+            string[] _querystringChops = new string[_propertyInfoCount];
+            for (int i=0; i< _propertyInfoCount; i++)
+            {
+                PropertyInfo _propertyinfo = _propertyInfos[i];
+                if (_propertyinfo.PropertyType.BaseType == typeof(System.Enum))
+                {
+                    MemberInfo _memberInfo = (_propertyinfo.PropertyType).GetMember(_propertyinfo.GetValue(obj, null).ToString()).FirstOrDefault();
+                    if (_memberInfo != null)
+                    {
+                        FlagValueAttribute _flagValueAttribute = ((FlagValueAttribute)_memberInfo.GetCustomAttributes(typeof(FlagValueAttribute), false).FirstOrDefault());
+                        if (_flagValueAttribute != null)
+                        {
+                            _querystringChops[i] = (_propertyinfo.Name + "=" + HttpUtility.UrlEncode(_flagValueAttribute.value));
+                        }
+                    }
+                }
+                if (string.IsNullOrWhiteSpace(_querystringChops[i]))
+                {
+                    _querystringChops[i] = (_propertyinfo.Name + "=" + HttpUtility.UrlEncode(_propertyinfo.GetValue(obj, null).ToString().ToLower()));
+                } 
+            }
+            return string.Join("&", _querystringChops) + "&key=" + HttpUtility.UrlEncode(_apiKey);
         }
 
         public Playlist InsertPlaylist(Playlist body, string part)
