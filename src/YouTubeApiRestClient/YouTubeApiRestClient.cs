@@ -215,7 +215,7 @@ namespace YouTubeApiRestClient
                 }
                 if (string.IsNullOrWhiteSpace(_querystringChops[i]))
                 {
-                    _querystringChops[i] = (_propertyinfo.Name + "=" + HttpUtility.UrlEncode(_propertyinfo.GetValue(obj, null).ToString().ToLower()));
+                    _querystringChops[i] = (_propertyinfo.Name + "=" + HttpUtility.UrlEncode(_propertyinfo.GetValue(obj, null).ToString()));
                 } 
             }
             return string.Join("&", _querystringChops) + "&key=" + HttpUtility.UrlEncode(_apiKey);

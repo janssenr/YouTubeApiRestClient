@@ -12,31 +12,35 @@ namespace YouTubeApiRestClient
         #region public enums
         public enum VideoType
         {
-            Any,
-            Episode,
-            Movie
+            any,
+            episode,
+            movie
         }
         public enum VideoSyndicated
         {
-            Any,
+            any,
+            [FlagValue("true")]
             True
         }
         public enum VideoLicense
         {
-            Any,
-            CreativeCommon,
-            Youtube
+            any,
+            creativeCommon,
+            youtube
         }
         public enum VideoEmbeddable
         {
-            Any,
+            any,
+            [FlagValue("true")]
             True
         }
         public enum VideoDuration
         {
-            Any,
+            any,
+            [FlagValue("long")]
             Long,
-            Medium,
+            medium,
+            [FlagValue("short")]
             Short
         }
         public enum VideoDimension
@@ -49,47 +53,47 @@ namespace YouTubeApiRestClient
         }
         public enum VideoDefinition
         {
-            Any,
-            High,
-            Standard
+            any,
+            high,
+            standard
         }
         public enum VideoCaption
         {
-            Any,
-            ClosedCaption,
-            None
+            any,
+            closedCaption,
+            none
         }
         public enum Type
         {
-            Channel,
-            Playlist,
-            Video
+            channel,
+            playlist,
+            video
         }
         public enum SafeSearch
         {
-            Moderate,
-            None,
-            Strict
+            moderate,
+            none,
+            strict
         }
         public enum Order
         {
-            Date,
-            Rating,
-            Relevance,
-            Title,
-            VideoCount,
-            ViewCount
+            date,
+            rating,
+            relevance,
+            title,
+            videoCount,
+            viewCount
         }
         public enum EventType
         {
-            Completed,
-            Live,
-            Upcoming
+            completed,
+            live,
+            upcoming
         }
         public enum ChannelType
         {
-            Any,
-            Show
+            any,
+            show
         }
         #endregion
 
