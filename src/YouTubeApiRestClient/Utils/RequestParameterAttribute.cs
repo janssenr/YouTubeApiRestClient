@@ -11,10 +11,10 @@ namespace YouTubeApiRestClient.Utils
     public class RequestParameterAttribute : Attribute
     {
         /// <summary>Gets the name of the parameter.</summary>
-        public string Name { get; }
+        public string Name { get; private set; }
 
         /// <summary>Gets the type of the parameter, Path or Query.</summary>
-        public RequestParameterType Type { get; }
+        public RequestParameterType Type { get; private set; }
 
         /// <summary>
         /// Constructs a new property attribute to be a part of a REST URI. 

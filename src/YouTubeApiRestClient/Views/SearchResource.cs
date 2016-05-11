@@ -128,7 +128,7 @@ namespace YouTubeApiRestClient.Views
             //     properties that identify the result's title, description, and so forth. If you
             //     set part=snippet, the API response will also contain all of those nested properties.
             [RequestParameterAttribute("part", RequestParameterType.Query)]
-            public string Part { get; }
+            public string Part { get; private set; }
 
             //
             // Summary:
