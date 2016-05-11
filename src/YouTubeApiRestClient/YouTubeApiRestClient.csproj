@@ -49,6 +49,8 @@
     <Compile Include="Exceptions\YouTubeException.cs" />
     <Compile Include="Helpers\JsonHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\ParameterUtils.cs" />
+    <Compile Include="Utils\RequestParameterAttribute.cs" />
     <Compile Include="Views\Playlist.cs" />
     <Compile Include="Views\PlaylistItem.cs" />
     <Compile Include="Views\PlaylistItemContentDetails.cs" />
@@ -57,6 +59,7 @@
     <Compile Include="Views\PlaylistSnippet.cs" />
     <Compile Include="Views\PlaylistStatus.cs" />
     <Compile Include="Views\RequestError.cs" />
+    <Compile Include="Views\SearchResource.cs" />
     <Compile Include="Views\StandardResponse.cs" />
     <Compile Include="Views\PageInfo.cs" />
     <Compile Include="Views\ResourceId.cs" />

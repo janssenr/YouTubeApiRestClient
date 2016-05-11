@@ -8,6 +8,7 @@ using System.Text;
 using System.Web;
 using YouTubeApiRestClient.Exceptions;
 using YouTubeApiRestClient.Helpers;
+using YouTubeApiRestClient.Utils;
 using YouTubeApiRestClient.Views;
 
 namespace YouTubeApiRestClient
@@ -183,14 +184,26 @@ namespace YouTubeApiRestClient
 
         public SearchListResponse Search(string part, string q, long? maxResults = null)
         {
-            var queryStringData = new NameValueCollection
+            var request = new SearchResource.ListRequest(part)
             {
-                {"part", part},
-                {"maxResults", maxResults.ToString()},
-                {"q", q},
-                {"key", _apiKey}
+                Q = q,
+                MaxResults = maxResults
             };
-            var queryString = string.Join("&", queryStringData.AllKeys.Select(k => k + "=" + HttpUtility.UrlEncode(queryStringData[k])));
+            return Search(request);
+        }
+
+        public SearchListResponse Search(SearchResource.ListRequest request)
+        {
+            var parameters = ParameterUtils.CreateParameterKeyValuePairs(request);
+            parameters.Add(new KeyValuePair<string, string>("key", _apiKey));
+
+            var queryString = string.Join("&",
+                parameters.Select(
+                    p =>
+                        string.IsNullOrEmpty(p.Value)
+                            ? Uri.EscapeDataString(p.Key)
+                            : string.Format("{0}={1}", Uri.EscapeDataString(p.Key),
+                                Uri.EscapeDataString(p.Value))));
             var url = _restApiUrl + "/youtube/v3/search?" + queryString;
             var response = DoRestCall(url, "GET");
             return JsonHelper.Deserialize<SearchListResponse>(response);
